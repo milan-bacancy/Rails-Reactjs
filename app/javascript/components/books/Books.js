@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Books = () => {
+const Books = (props) => {
 	const [books, setBook] = useState([]);
 
-	const { id } = useParams();
-
 	useEffect(() => {
-		loadBooks();
-	}, [])
+		loadBooks();	}, [])
 
 	const loadBooks = async () => {
 		const result = await axios.get('http://localhost:3000/api/v1/books');
@@ -23,6 +20,7 @@ const Books = () => {
 
   return (
     <div className="container">
+			<h1 className="text-center">Status: {props.logged_in}</h1>
 			<div className="py-4">
 				<h1>Books Page</h1>
 				<table className="table border shadow">
@@ -51,6 +49,8 @@ const Books = () => {
 						))}
 					</tbody>
 				</table>
+
+        <Link className="btn btn-primary" to={'/books/add'}> Add Book </Link>
 			</div>
 		</div>
   )
