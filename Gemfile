@@ -25,6 +25,12 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Add wkhtmltopdf for PDF generation
+gem 'wkhtmltopdf-binary', '~> 0.12.6'
+
+# Ensure compatible nio4r version for Ruby 3.x compatibility
+gem 'nio4r', '>= 2.5.9'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
